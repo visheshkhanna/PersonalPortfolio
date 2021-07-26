@@ -74,7 +74,7 @@ const repos = {
   heading: "Recent Projects",
   gitHubUsername: "visheshkhanna", //i.e."johnDoe12Gh"
   reposLength: 0,
-  specificRepos: ["BankingSystem", "iPod-React"],
+  specificRepos: ["PersonalPortfolio", "BankingSystem", "iPod-React", "MusicPlayerProject", "TODO-LIST-APP", "Resume-Project"],
 
 };
 
