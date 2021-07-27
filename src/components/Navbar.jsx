@@ -13,6 +13,7 @@ const Navigation = React.forwardRef((props, ref) => {
   const navbarMenuRef = React.useRef();
   const navbarDimensions = useResizeObserver(navbarMenuRef);
   const navBottom = navbarDimensions ? navbarDimensions.bottom : 0;
+  const [expanded, setExpanded] = useState(false);
   useScrollPosition(
     ({ prevPos, currPos }) => {
       if (!navbarDimensions) return;
@@ -38,11 +39,12 @@ const Navigation = React.forwardRef((props, ref) => {
         !isTop ? "navbar-white" : "navbar-transparent"
       }`}
       expand="lg"
+      expanded={expanded}
     >
       <Navbar.Brand className="brand" href={process.env.PUBLIC_URL + "/#home"}>
         {`<${mainBody.firstName}/>`}
       </Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" className="toggler" />
+      <Navbar.Toggle aria-controls="basic-navbar-nav" className="toggler" onClick={() => setExpanded(expanded ? false : "expanded")} />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           {/* {
@@ -54,6 +56,7 @@ const Navigation = React.forwardRef((props, ref) => {
             <Nav.Link
               className="nav-link lead"
               href={process.env.PUBLIC_URL + "/#projects"}
+              onClick={() => setExpanded(false)}
             >
               Projects
             </Nav.Link>
@@ -63,6 +66,7 @@ const Navigation = React.forwardRef((props, ref) => {
             href={about.resume}
             target="_blank"
             rel="noreferrer noopener"
+            onClick={() => setExpanded(false)}
           >
             Resume
           </Nav.Link>
@@ -70,6 +74,7 @@ const Navigation = React.forwardRef((props, ref) => {
             <Nav.Link
               className="nav-link lead"
               href={process.env.PUBLIC_URL + "/#aboutme"}
+              onClick={() => setExpanded(false)}
             >
               About
             </Nav.Link>
@@ -78,6 +83,7 @@ const Navigation = React.forwardRef((props, ref) => {
             <Nav.Link
               className="nav-link lead"
               href={process.env.PUBLIC_URL + "/#skills"}
+              onClick={() => setExpanded(false)}
             >
               Skills
             </Nav.Link>
