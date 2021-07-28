@@ -3,3 +3,4 @@ src/.DS_Store
 src/components/.DS_Store
 node_modules/
 build/
+public/.DS_Store
